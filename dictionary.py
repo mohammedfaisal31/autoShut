@@ -31,13 +31,13 @@ def getDictionary(word):
 prev = ''
 
 while(True):
-	word1 = ''
+	word = ''
 	r = Tk()
 	try:
-		word1 = r.clipboard_get()
-		if(word1 != '' and word1 != prev):
-			getDictionary(word1)
-		prev = word1
+		word = r.clipboard_get()
+		if(word != '' and word != prev):
+			getDictionary(''.join(i for i in word if i.isalnum() or i == ' '))
+		prev = word
 	except:
 		print("ERROR!") 
 	r.destroy()
