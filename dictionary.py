@@ -1,14 +1,11 @@
-import colorama
-from colorama import Fore
 import requests as req
 import json as j
-import pyperclip as p
 from tkinter import Tk  
-prev = ''
+
+
 
 def getFormatString(str):
 	return "| "+str+" "*(99-len(str))+"|"
-
 
 def getDictionary(word):
 		try:
@@ -31,12 +28,17 @@ def getDictionary(word):
 			print("No response")
 
 
+prev = ''
+
 while(True):
+	word1 = ''
+	r = Tk()
 	try:
-		word = Tk().clipboard_get()
-		if(word != '' and word != prev):
-			getDictionary(word)
-		prev = word
+		word1 = r.clipboard_get()
+		if(word1 != '' and word1 != prev):
+			getDictionary(word1)
+		prev = word1
 	except:
-		print("ERROR!")
+		print("ERROR!") 
+	r.destroy()
 		
